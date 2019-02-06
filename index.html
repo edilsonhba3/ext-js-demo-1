@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ext js</title>
+
+	<link rel="stylesheet" type="text/css" href="css/ext-all.css">
+
+	<script src="js/ext-all-debug.js" type="text/javascript" charset="utf-8"></script>
+
+
+	<script type="text/javascript">
+		
+		Ext.onReady(function () {
+	  		///Ext.Msg.alert('Info', 'Extjs is running');
+
+	  		Ext.Ajax.request({
+                url: 'http://localhost:8082/app-rest-extjs/',
+                method  : 'GET',
+                //contentType: 'application/json',
+                /*headers:{
+                	'Access-Control-Allow-Origin':'http://localhost:8082/app-rest-extjs/',
+                	'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept'
+                },*/
+                success: function(x, y, z){
+                	console.log(x)
+                	console.log(y)
+                	
+                	var a = JSON.parse(x.responseText)
+                	console.log(a)
+                	Ext.Msg.alert('Info', a.success);
+                }
+            });
+
+
+
+	  	});
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
